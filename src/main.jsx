@@ -29,7 +29,10 @@ function App(){
   <main className="workspace">
    <aside className="panel editor"><div className="panelhead"><span><Code2 size={15}/> Editor</span><select value={language} onChange={e=>setLanguage(e.target.value)}><option>javascript</option><option>typescript</option><option>jsx</option><option>css</option><option>html</option><option>python</option><option>json</option></select></div>
     <textarea spellCheck="false" value={code} onChange={e=>setCode(e.target.value)} aria-label="Code editor"/>
-    <div className="editorfoot"><span>{code.split("\\n").length} lines</span><span>CodeSnap</span></div>
+    <div className="editorfoot">
+  <span>{code.split("\n").length} lines</span>
+  <span>CodeSnap</span>
+</div>
    </aside>
    <section className="previewwrap"><div className="previewhead"><div><span className="eyebrow"><Sparkles size={14}/> LIVE PREVIEW</span><h1>Turn code into a statement.</h1></div><div className="export"><button className="secondary" onClick={copyImage}>{copied?<Check size={16}/>:<Copy size={16}/>} {copied?"Copied":"Copy"}</button><button className="primary" onClick={exportPng}><Download size={16}/> Export PNG</button></div></div>
     <div className="canvas"><div ref={card} className="codecard" style={{background:backgrounds[bg],padding,borderRadius:radius}}>
